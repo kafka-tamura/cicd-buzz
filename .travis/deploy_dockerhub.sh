@@ -10,3 +10,4 @@ echo $REPO_NAME
 docker build -f Dockerfile -t $DOCKER_USER/$REPO_NAME:$TAG .
 docker push $DOCKER_USER/$REPO_NAME:$TAG
 # docker push $TRAVIS_REPO_SLUG
+
