@@ -9,5 +9,5 @@ echo "Building docker container"
 echo $TRAVIS_REPO_SLUG
 docker build -f Dockerfile -t $TRAVIS_REPO_SLUG:$TAG .
 echo "Pushing to docker"
-echo $TRAVIS_REPO_SLUG
-docker push $TRAVIS_REPO_SLUG
+REPO_NAME=`echo $TRAVIS_REPO_SLUG | cut -d'/' -f2`
+docker push kakfatamura/$REPO_NAME
