@@ -5,10 +5,7 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
 else
     TAG="$TRAVIS_BRANCH"
 fi
-echo "Building docker container"
-echo $TRAVIS_REPO_SLUG
-docker build -f Dockerfile -t $TRAVIS_REPO_SLUG:$TAG .
-echo "Pushing to docker"
 REPO_NAME=`echo $TRAVIS_REPO_SLUG | cut -d'/' -f2`
 echo $REPO_NAME
-docker push kakfatamura/$REPO_NAME
+docker build -f Dockerfile -t $DOCKER_USER/$REPO_NAME:$TAG .
+docker push $DOCKER_USER/$REPO_NAME:$TAG
