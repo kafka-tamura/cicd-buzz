@@ -11,7 +11,7 @@ signal.signal(signal.SIGINT, lambda s, f: os._exit(0))
 def generate_buzz():
     buzz = generator.generate_buzz()
     print(os.getcwd())
-    print(os.listdir())
+    print(os.listdir('./'))
     return render_template('index.html', buzz=buzz)
 
 if __name__ == "__main__":
